@@ -16,11 +16,6 @@ namespace webschool.Models
         [StringLength(50, ErrorMessage = "O {0} deverá ter entre {2} e {1} caracteres", MinimumLength = 3)]
         public string Name { get; set; }
 
-        [Display(Name = "Área")]
-        [Required(ErrorMessage = "Tem que indicar a área")]
-        [StringLength(30, ErrorMessage = "A {0} deverá ter entre {2} e {1} caracteres", MinimumLength = 3)]
-        public string Field { get; set; }
-
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = false)]
         [Display(Name = "Horário - Início")]
@@ -47,5 +42,12 @@ namespace webschool.Models
         public string Description { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+
+        [Required(ErrorMessage = "Deve escolher uma área")]
+        [Range(1, double.MaxValue, ErrorMessage = "Tem que selecionar uma área")]
+        [Display(Name = "Áreas")]
+        public int FieldID { get; set; }
+
+        public virtual Field Field { get; set; }
     }
 }

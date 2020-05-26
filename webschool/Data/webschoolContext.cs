@@ -28,5 +28,7 @@ namespace webschool.Data
         public System.Data.Entity.DbSet<webschool.Models.Course> Courses { get; set; }
 
         public System.Data.Entity.DbSet<webschool.Models.Student> Students { get; set; }
+
+        public System.Data.Entity.DbSet<webschool.Models.Field> Fields { get; set; }
     }
 }
